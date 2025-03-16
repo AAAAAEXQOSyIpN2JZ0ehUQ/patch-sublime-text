@@ -1,4 +1,4 @@
-﻿#====================================================
+#====================================================
 #   SCRIPT:                   Patch Sublime Text
 #   DESARROLLADO POR:         Jony Rivera (Dzhoni)
 #   FECHA DE ACTUALIZACIÓN:   05-05-2025
