@@ -1,4 +1,4 @@
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+﻿[Console]::OutputEncoding = [System.Text.Encoding]::UTF8 # Codificación para PowerShell
 
 # ====================================================
 #   SCRIPT:                   Patch Sublime Text
@@ -8,7 +8,7 @@
 #   GITHUB OFICIAL:           https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/patch-sublime-text
 # ====================================================
 
-#Clear-Host # Pantalla limpia. Continuando con la ejecución...
+Clear-Host # Pantalla limpia. Continuando con la ejecución...
 
 # Colores de texto
 $Black = [ConsoleColor]::Black
