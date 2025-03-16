@@ -6,7 +6,7 @@
 #   GITHUB OFICIAL:           https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/patch-sublime-text
 #====================================================
 
-Clear-Host # Pantalla limpia. Continuando con la ejecución...
+#Clear-Host # Pantalla limpia. Continuando con la ejecución...
 
 # Colores de texto
 $Black = [ConsoleColor]::Black
@@ -37,10 +37,8 @@ if ($executionPolicy -ne "RemoteSigned") {
     Set-ExecutionPolicy RemoteSigned -Force
     Write-Host "[ + ] Política de ejecución configurada correctamente." -ForegroundColor $Green
 } else {
-    Write-Host "[ + ] La política de ejecución ya está establecida en 'RemoteSigned'." -ForegroundColor $Green
+    Write-Host "[ + ] La política de ejecución ya está establecida en 'RemoteSigned'" -ForegroundColor $Green
 }
-
-Write-Host ""  # Espacio en blanco para mayor claridad visual
 
 # Función para descargar el archivo de configuración a una carpeta temporal
 function Download-ConfigFile {
