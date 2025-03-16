@@ -65,7 +65,7 @@ function Download-ConfigFile {
 $configFilePath = "patch_config.txt"
 
 # URL desde donde descargar el archivo de configuración si no existe localmente
-$configFileUrl = "https://example.com/path/to/patch_config.txt"
+$configFileUrl = "https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/patch-sublime-text/refs/heads/main/patch_config.txt"
 
 # Verificar si el archivo de configuración existe
 if (-not (Test-Path -Path $configFilePath)) {
