@@ -1,12 +1,4 @@
-﻿# 
-#   SCRIPT:                   Patch Sublime Text
-#   DESARROLLADO POR:         Jony Rivera (Dzhoni)
-#   FECHA DE ACTUALIZACIÓN:   05-05-2025
-#   CONTACTO TELEGRAM:        https://t.me/Dzhoni_dev
-#   GITHUB OFICIAL:           https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/patch-sublime-text
-# 
-
-#Clear-Host # Pantalla limpia. Continuando con la ejecución...
+﻿# Clear-Host # Pantalla limpia. Continuando con la ejecución...
 
 # Colores de texto
 $Black = [ConsoleColor]::Black
