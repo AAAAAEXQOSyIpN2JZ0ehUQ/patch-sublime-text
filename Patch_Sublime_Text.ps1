@@ -1,12 +1,12 @@
 #====================================================
 #   SCRIPT:                   Patch Sublime Text
 #   DESARROLLADO POR:         Jony Rivera (Dzhoni)
-#   FECHA DE ACTUALIZACIÃ“N:   05-05-2025
+#   FECHA DE ACTUALIZACIÓN:   05-05-2025
 #   CONTACTO TELEGRAM:        https://t.me/Dzhoni_dev
 #   GITHUB OFICIAL:           https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/patch-sublime-text
 #====================================================
 
-#Clear-Host # Pantalla limpia. Continuando con la ejecuciÃ³n...
+#Clear-Host # Pantalla limpia. Continuando con la ejecución...
 
 # Colores de texto
 $Black = [ConsoleColor]::Black
@@ -22,32 +22,32 @@ $White = [ConsoleColor]::White
 Write-Host "====================================================" -ForegroundColor $Cyan
 Write-Host "   SCRIPT:                   Patch Sublime Text" -ForegroundColor $Green
 Write-Host "   DESARROLLADO POR:         Jony Rivera (Dzhoni)" -ForegroundColor $White
-Write-Host "   FECHA DE ACTUALIZACIÃ“N:   05-05-2025" -ForegroundColor $Yellow
+Write-Host "   FECHA DE ACTUALIZACIÓN:   05-05-2025" -ForegroundColor $Yellow
 Write-Host "   CONTACTO TELEGRAM:        https://t.me/Dzhoni_dev" -ForegroundColor $White
 Write-Host "   GITHUB OFICIAL:           https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/patch-sublime-text" -ForegroundColor $White
 Write-Host "====================================================" -ForegroundColor $Cyan
 Write-Host ""  # Espacio en blanco para mayor claridad visual
 
-# Verificar y establecer la polÃ­tica de ejecuciÃ³n para evitar restricciones
-Write-Host "[ * ] Verificando polÃ­tica de ejecuciÃ³n..." -ForegroundColor $Yellow
+# Verificar y establecer la política de ejecución para evitar restricciones
+Write-Host "[ * ] Verificando política de ejecución..." -ForegroundColor $Yellow
 $executionPolicy = Get-ExecutionPolicy
 
 if ($executionPolicy -ne "RemoteSigned") {
-    Write-Host "[ * ] Configurando polÃ­tica de ejecuciÃ³n a 'RemoteSigned'..." -ForegroundColor $Cyan
+    Write-Host "[ * ] Configurando política de ejecución a 'RemoteSigned'..." -ForegroundColor $Cyan
     Set-ExecutionPolicy RemoteSigned -Force
-    Write-Host "[ + ] PolÃ­tica de ejecuciÃ³n configurada correctamente." -ForegroundColor $Green
+    Write-Host "[ + ] Política de ejecución configurada correctamente." -ForegroundColor $Green
 } else {
-    Write-Host "[ + ] La polÃ­tica de ejecuciÃ³n ya estÃ¡ establecida en 'RemoteSigned'" -ForegroundColor $Green
+    Write-Host "[ + ] La política de ejecución ya está establecida en 'RemoteSigned'" -ForegroundColor $Green
 }
 
-# FunciÃ³n para descargar el archivo de configuraciÃ³n a una carpeta temporal
+# Función para descargar el archivo de configuración a una carpeta temporal
 function Download-ConfigFile {
     param (
         [string]$url,             # URL de donde descargar el archivo
         [string]$destinationPath  # Ruta de destino donde guardar el archivo
     )
 
-    Write-Host "[ * ] Descargando archivo de configuraciÃ³n desde: $url" -ForegroundColor $Yellow
+    Write-Host "[ * ] Descargando archivo de configuración desde: $url" -ForegroundColor $Yellow
 
     try {
         # Descargar el archivo desde la URL
@@ -59,31 +59,31 @@ function Download-ConfigFile {
     }
 }
 
-# Ruta del archivo de configuraciÃ³n
+# Ruta del archivo de configuración
 $configFilePath = "patch_config.txt"
 
-# URL desde donde descargar el archivo de configuraciÃ³n si no existe localmente
+# URL desde donde descargar el archivo de configuración si no existe localmente
 $configFileUrl = "https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/patch-sublime-text/refs/heads/main/patch_config.txt"
 
-# Verificar si el archivo de configuraciÃ³n existe
+# Verificar si el archivo de configuración existe
 if (-not (Test-Path -Path $configFilePath)) {
-    Write-Host "[ - ] El archivo de configuraciÃ³n no existe localmente. Intentando descargarlo..." -ForegroundColor $Red
+    Write-Host "[ - ] El archivo de configuración no existe localmente. Intentando descargarlo..." -ForegroundColor $Red
     
     # Obtener una ruta temporal para guardar el archivo descargado
     $tempConfigFilePath = Join-Path -Path $env:TEMP -ChildPath "patch_config.txt"
 
-    # Llamar a la funciÃ³n para descargar el archivo
+    # Llamar a la función para descargar el archivo
     Download-ConfigFile -url $configFileUrl -destinationPath $tempConfigFilePath
 
-    # Actualizar la ruta del archivo de configuraciÃ³n a la descargada
+    # Actualizar la ruta del archivo de configuración a la descargada
     $configFilePath = $tempConfigFilePath
 }
 
-# Leer las lÃ­neas del archivo de configuraciÃ³n
+# Leer las líneas del archivo de configuración
 $configLines = Get-Content -Path $configFilePath
 
-# Mostrar las Ãºltimas 5 versiones disponibles en la base de datos
-Write-Host "[ > ] Ãšltimas 5 versiones disponibles en la base de datos:" -ForegroundColor $Cyan
+# Mostrar las últimas 5 versiones disponibles en la base de datos
+Write-Host "[ > ] Últimas 5 versiones disponibles en la base de datos:" -ForegroundColor $Cyan
 Write-Host ""  # Espacio en blanco para mayor claridad visual
 $versions = @()
 foreach ($line in $configLines) {
@@ -92,38 +92,38 @@ foreach ($line in $configLines) {
     }
 }
 
-# Mostrar las Ãºltimas 5 versiones (si hay suficientes)
+# Mostrar las últimas 5 versiones (si hay suficientes)
 $latestVersions = $versions | Select-Object -Last 5
 foreach ($version in $latestVersions) {
-    Write-Host "  - VersiÃ³n $version" -ForegroundColor $White
+    Write-Host "  - Versión $version" -ForegroundColor $White
 }
 
 Write-Host ""  # Espacio en blanco para mayor claridad visual
 
-# Solicitar al usuario que ingrese la versiÃ³n de Sublime Text
-$installedVersion = Read-Host "Por favor ingrese la versiÃ³n de Sublime Text (por ejemplo, 4192)"
+# Solicitar al usuario que ingrese la versión de Sublime Text
+$installedVersion = Read-Host "Por favor ingrese la versión de Sublime Text (por ejemplo, 4192)"
 
-# Validar la versiÃ³n ingresada (solo nÃºmeros)
+# Validar la versión ingresada (solo números)
 if ($installedVersion -notmatch '^\d+$') {
-    Write-Host "[ - ] VersiÃ³n no vÃ¡lida. AsegÃºrese de ingresar un nÃºmero vÃ¡lido." -ForegroundColor $Red
+    Write-Host "[ - ] Versión no válida. Asegúrese de ingresar un número válido." -ForegroundColor $Red
     Exit
 }
 
 # Variable para verificar si encontramos el parche
 $patchFound = $false
 
-# Buscar la lÃ­nea de configuraciÃ³n para la versiÃ³n ingresada
+# Buscar la línea de configuración para la versión ingresada
 foreach ($line in $configLines) {
     if ($line -match "Version:\s+Sublime Text 4 (\d+)\s+FindBytes:\s+(.+?)\s+ReplaceBytes:\s+(.+)$") {
         $versionInConfig = $matches[1]
         $findBytes = $matches[2]
         $replaceBytes = $matches[3]
 
-        # Si encontramos la versiÃ³n correcta, asignamos los valores de bytes
+        # Si encontramos la versión correcta, asignamos los valores de bytes
         if ($versionInConfig -eq $installedVersion) {
             $patchFound = $true
             Write-Host ""  # Espacio en blanco para mayor claridad visual
-            Write-Host "[ + ] Parche encontrado para la versiÃ³n $installedVersion" -ForegroundColor $Green
+            Write-Host "[ + ] Parche encontrado para la versión $installedVersion" -ForegroundColor $Green
             Write-Host "FindBytes: $findBytes"
             Write-Host "ReplaceBytes: $replaceBytes"
             break
@@ -134,13 +134,13 @@ foreach ($line in $configLines) {
 # Si no encontramos el parche, salimos
 if (-not $patchFound) {
     Write-Host ""  # Espacio en blanco para mayor claridad visual
-    Write-Host "[ - ] No se encontrÃ³ el parche para la versiÃ³n $installedVersion" -ForegroundColor $Red
+    Write-Host "[ - ] No se encontró el parche para la versión $installedVersion" -ForegroundColor $Red
     Exit
 }
 
-# OpciÃ³n de modificar el archivo hosts
+# Opción de modificar el archivo hosts
 Write-Host ""  # Espacio en blanco para mayor claridad visual
-$modifyHosts = Read-Host "Â¿Deseas modificar el archivo hosts para bloquear las licencias de Sublime Text?`n" `
+$modifyHosts = Read-Host "¿Deseas modificar el archivo hosts para bloquear las licencias de Sublime Text?`n" `
                 "Este proceso puede fallar si no tienes los permisos adecuados para modificar el archivo hosts.`n" `
                 "Actualmente no es necesario bloquear el host. (S/N)"
 
@@ -178,7 +178,7 @@ if ($modifyHosts -eq 'S' -or $modifyHosts -eq 's') {
             "127.0.0.1 45.55.41.223"
         )
 
-        # Asegurarnos de que las entradas no estÃ©n ya en el archivo
+        # Asegurarnos de que las entradas no estén ya en el archivo
         foreach ($entry in $entries) {
             if ($existingHosts -notcontains $entry) {
                 Add-Content -Path $hostsFile -Value $entry
@@ -186,17 +186,17 @@ if ($modifyHosts -eq 'S' -or $modifyHosts -eq 's') {
             }
         }
     } else {
-        Write-Host "[ - ] El archivo hosts no se encuentra en la ubicaciÃ³n esperada." -ForegroundColor $Red
+        Write-Host "[ - ] El archivo hosts no se encuentra en la ubicación esperada." -ForegroundColor $Red
     }
 }
 
-# Espacio visual para separar la parte de modificaciÃ³n de archivos
+# Espacio visual para separar la parte de modificación de archivos
 Write-Host "" 
 
 # Obtener la ruta de Sublime Text (ajusta si es necesario)
 $filePath = "C:\Program Files\Sublime Text\sublime_text.exe"
 
-# FunciÃ³n para calcular el hash de un archivo
+# Función para calcular el hash de un archivo
 function Get-FileHashValue {
     param (
         [string]$filePath
@@ -210,8 +210,8 @@ Write-Host "[ * ] Calculando el hash del archivo original..." -ForegroundColor $
 $originalHash = Get-FileHashValue -filePath $filePath
 Write-Host "[ > ] Hash original: $originalHash" -ForegroundColor $Cyan
 
-# Confirmar si el archivo estÃ¡ en uso
-Write-Host "[ * ] Esperando que el archivo sublime_text.exe no estÃ© en uso..." -ForegroundColor $Yellow
+# Confirmar si el archivo está en uso
+Write-Host "[ * ] Esperando que el archivo sublime_text.exe no esté en uso..." -ForegroundColor $Yellow
 Start-Sleep -Seconds 3
 
 # Intentar modificar el archivo sublime_text.exe
@@ -254,7 +254,7 @@ try {
     Write-Host "[ - ] Hubo un error al modificar el archivo: $_" -ForegroundColor $Red
 }
 
-# Verificar si el parche fue exitoso comparando el hash despuÃ©s del parche
+# Verificar si el parche fue exitoso comparando el hash después del parche
 Write-Host "[ * ] Calculando el hash del archivo modificado..." -ForegroundColor $Yellow
 $modifiedHash = Get-FileHashValue -filePath $filePath
 Write-Host "[ > ] Hash modificado: $modifiedHash" -ForegroundColor $Cyan
@@ -266,10 +266,10 @@ if ($originalHash -eq $modifiedHash) {
     Write-Host "[ + ] El parche fue exitoso. El archivo ha sido modificado." -ForegroundColor $Green
 }
 
-Write-Host "[ * ] Restaurando polÃ­tica de ejecuciÃ³n a 'Restricted'..." -ForegroundColor $Yellow
+Write-Host "[ * ] Restaurando política de ejecución a 'Restricted'..." -ForegroundColor $Yellow
 Set-ExecutionPolicy Restricted -Force
-Write-Host "[ + ] PolÃ­tica de ejecuciÃ³n actual: $(Get-ExecutionPolicy)" -ForegroundColor $Green
+Write-Host "[ + ] Política de ejecución actual: $(Get-ExecutionPolicy)" -ForegroundColor $Green
 
-# Evitar que la ventana de PowerShell se cierre automÃ¡ticamente
-Write-Host "[ * ] La ventana no se cerrarÃ¡ automÃ¡ticamente. Puedes cerrarla manualmente." -ForegroundColor $Yellow
+# Evitar que la ventana de PowerShell se cierre automáticamente
+Write-Host "[ * ] La ventana no se cerrará automáticamente. Puedes cerrarla manualmente." -ForegroundColor $Yellow
 Write-Host ""  # Espacio en blanco para mayor claridad visual
