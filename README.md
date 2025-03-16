@@ -1,4 +1,4 @@
-# patch-sublime-text
+# Patch-Sublime-Text
 
 ```python3
 Get-ExecutionPolicy; Set-ExecutionPolicy RemoteSigned -Force
