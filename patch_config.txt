@@ -11,14 +11,12 @@ Columnas:
 3. ReplaceBytes: Secuencia hexadecimal de bytes con los que reemplazar a los bytes encontrados.
 
 Formato:
-- **Sublime Text 3:** Versión 3211
 - **Sublime Text 4:** Varias versiones desde 4123 hasta 4192
 
 ***********************************************
                  Datos de Versiones
 ***********************************************
 
-Version: Sublime Text 3 3211 FindBytes: 84 75 75 00 0F 94 C1 ReplaceBytes: 85 40 05 01 48 85 C9
 Version: Sublime Text 4 4123 FindBytes: 80 79 05 00 0F 94 C2 ReplaceBytes: C6 41 05 01 B2 00 90
 Version: Sublime Text 4 4143 FindBytes: 80 78 05 00 0F 94 C1 ReplaceBytes: C6 40 05 01 48 85 C9
 Version: Sublime Text 4 4166 FindBytes: 80 79 05 00 0F 94 C2 ReplaceBytes: C6 40 05 01 48 85 C9
@@ -27,3 +25,7 @@ Version: Sublime Text 4 4180 FindBytes: 80 79 05 00 0F 94 C2 ReplaceBytes: C6 41
 Version: Sublime Text 4 4186 FindBytes: 80 79 05 00 0F 94 C2 ReplaceBytes: C6 41 05 01 B2 00 90
 Version: Sublime Text 4 4189 FindBytes: 80 79 05 00 0F 94 C2 ReplaceBytes: C6 41 05 01 B2 00 90
 Version: Sublime Text 4 4192 FindBytes: 80 79 05 00 0F 94 C2 ReplaceBytes: C6 41 05 01 B2 00 90
+
+***********************************************
+                 Fin de Versiones
+***********************************************
